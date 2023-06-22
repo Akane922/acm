@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col d-flex justify-content-center text-center mt-3">
+      <div class="col-10 col-md-6 mt-3">
+        <div class="col-12 text-center pb-2">
+          <p class="title-p fw-bold text-main text-color fs-4">ログイン</p>
+        </div>
+
+        <div class="l-form">
+          <%= form_with model: @veterinarian, url: session_path(@veterinarian), class: 'p-form__input', local: true do |f| %>
+            <div class="div-title mb-4">
+              <div class="text-start">
+                <%= f.label :email, class: 'text-start text-main text-color fw-bold mb-2 fs-6', value: 'メールアドレス' %>
+                <span class="p_required">必須</span>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+                <%= f.label :password, class: 'text-start text-main text-color fw-bold mb-2 pt-4', value: 'パスワード' %>
+                <span class="p_required">必須</span>
+                <%= f.text_field :password, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+                <div class="p-form__input-submit text-start">
+                <%= f.submit "ログインする", class: 'btn fw-bold rounded py-md-3 w-50 text-white mt-3', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b); box-shadow: none;' %>
+
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

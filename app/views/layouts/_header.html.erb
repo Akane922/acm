@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light white py-3">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand" href="#">
+      <div class="row align-items-center">
+        <div class="col-auto">
+          <%= image_tag 'ACM logo.png', class: 'img-fluid', style: 'width: 50px; height: 60px;' %>
+        </div>
+        <div class="col">
+          <h4 class="text-orange pt-3 font-weight-light" style="color: orange;">Animal Care Matching</h4>
+        </div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <% if veterinarian_signed_in? %>
+      <% if params[:action] == "index" %>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/veterinarians/index.html.erb" style="position: relative;">
+              新規投稿
+              <div class="pink-line"></div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <%= link_to edit_veterinarian_registration_path, class: "nav-link", style: "position: relative;" do %>
+              アカウント編集
+              <div class="pink-line"></div>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= form_with url: destroy_veterinarian_session_path, method: :delete, class: 'text-center mb-4', local: true do |f| %>
+              <%= f.button "ログアウト", class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
+            <% end %>
+          </li>
+        </ul>
+      <% elsif params[:action] == "edit" %>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <%= link_to "新規投稿", new_post_path, class: "nav-link", style: "position: relative;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ホーム", root_path, class: "nav-link", style: "position: relative;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_veterinarian_session_path, method: :delete, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/veterinarians" style="position: relative;">
+            ホーム
+            <div class="pink-line"></div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="veterinarians/sign_in" style="position: relative;">
+            ログイン
+            <div class="pink-line"></div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規アカウント登録", new_veterinarian_registration_path, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
+        </li>
+      </ul>
+    <% end %>
+
+    <div class="gradient-line"></div>
+  </div>
+</nav>
+
+<div style="height: 4px; background-image: linear-gradient(to left, #fedc40, #f75d8b);"></div>

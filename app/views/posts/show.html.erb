@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-md-7 mt-5">
+      <%= render @post %>
+    </div>
+    
+    <div class="col-md-4 mt-5">
+      <%= render 'sidebar', users: @sidebar_users %>
+    </div>
+  </div>
+</div>
