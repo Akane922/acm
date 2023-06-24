@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :veterinarians
+
+  
+  devise_for :veterinarians, controllers: {
+    registrations: 'veterinarians/registrations'
+  }
   
   
   root 'posts#index'

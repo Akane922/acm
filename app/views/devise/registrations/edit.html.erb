@@ -23,7 +23,7 @@
             <%= f.text_field :password, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
 
             <%= f.label :password_confirmation, class: 'text-start text-main text-color fw-bold mb-2 pt-4', value: 'パスワード確認用（再入力）' %>
-            <%= f.text_field :password_confirmation, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>      
+            <%= f.text_field :password_confirmation, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
 
          </div>
           
@@ -89,7 +89,7 @@
               </div>
 
                <div class="text-start">
-                  <%= link_to "アカウント更新", veterinarian_registration_path, class: 'btn fw-bold rounded py-md-3 w-30 text-white', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b); box-shadow: none;' %>
+                  <%= f.submit "アカウント更新", class: 'btn fw-bold rounded py-md-3 w-30 text-white', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b); box-shadow: none;' %>
                 </div>
               </div>
             </div>
