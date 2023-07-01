@@ -5,4 +5,8 @@ class Veterinarian < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :category, optional: true
+
+  mount_uploader :avatar, ImageUploader
+  mount_uploader :resume, ImageUploader
+  mount_uploader :license, ImageUploader
 end

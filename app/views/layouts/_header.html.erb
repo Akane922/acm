@@ -15,11 +15,11 @@
     </button>
 
     <% if veterinarian_signed_in? %>
-      <% if params[:action] == "index" %>
+      <% if params[:action] == "index" || params[:action] == "show" %>
+      
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/veterinarians/index.html.erb" style="position: relative;">
-              新規投稿
+            <%= link_to "新規投稿", new_post_path, class: "nav-link", style: "position: relative;" %>
               <div class="pink-line"></div>
             </a>
           </li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_08_125324) do
+ActiveRecord::Schema.define(version: 2023_06_30_035139) do
 
   create_table "animal_care_groups", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2023_06_08_125324) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "veterinarian_id"
+    t.string "name", null: false
+    t.string "image1", null: false
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["veterinarian_id"], name: "index_posts_on_veterinarian_id"
+  end
+
   create_table "veterinarians", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -57,10 +67,16 @@ ActiveRecord::Schema.define(version: 2023_06_08_125324) do
     t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "resume"
+    t.string "license"
+    t.date "available_date1"
+    t.date "available_date2"
+    t.date "available_date3"
     t.index ["email"], name: "index_veterinarians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_veterinarians_on_reset_password_token", unique: true
   end
 
   add_foreign_key "animals", "animal_care_groups"
   add_foreign_key "animals", "categories"
+  add_foreign_key "posts", "veterinarians"
 end

@@ -52,39 +52,35 @@
                 <%= f.file_field :resume %>
               </div>
               
+             
+  
               <div class="div-title mb-4 mt-4">
                 <div class="text-start">
-                  <select class="form-select" id="exampleFromSelect1">
-                    <option value="0">専門分野を選択</option>
-                    <option value="1">1. 哺乳類</option>
-                    <option value="2">2. 鳥類</option>
-                    <option value="3">3. 爬虫類</option>
-                    <option value="4">4. 両生類</option>
-                    <option value="5">5. その他</option>
-                  </select>
+                  
+                  <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt:"専門分野を選択"}, {class:'form-select'}) %>
                 </div>
               </div>
 
               
               <div class="div-title mb-4">
                 <div class="text-start">
-                  <%= f.label :available_dates1, '第一対応可能日', class: 'form-label' %>
-                  <%= f.date_field :available_dates1, class: 'form-control', data: { behavior: 'flatpickr' } %>
+                 <p>第一対応可能日</p>
+                 <%= f.date_select :available_date1, { start_year: 2023 } %>
                 </div>
               </div>
 
               <div class="div-title mb-4">
                 <div class="text-start">
-                  <%= f.label :available_dates2, '第二対応可能日', class: 'form-label' %>
-                  <%= f.date_field :available_dates2, class: 'form-control', data: { behavior: 'flatpickr' } %>
+                 <p>第二対応可能日</p>
+                 <%= f.date_select :available_date2, { start_year: 2023 } %>
                 </div>
               </div>
 
 
               <div class="div-title mb-4">
                 <div class="text-start">
-                  <%= f.label :available_dates3, '第三対応可能日', class: 'form-label' %>
-                  <%= f.date_field :available_dates3, class: 'form-control', data: { behavior: 'flatpickr' } %>
+                 <p>第三対応可能日</p>
+                 <%= f.date_select :available_date3, { start_year: 2023 } %>
                 </div>
               </div>
 

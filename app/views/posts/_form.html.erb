@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center">
     <div class="col col-10 col-md-6 text-center mb-4" style="margin-top: 100px;">
-      <%= displayed_svg 'camera.svg', alt: 'Pikawaka' %>
+      <%= displayed_image 'acm_logo.png', alt: 'ACM logo', class: 'acm-logo' %>
       <span class="text-main fs-2 ms-2"><%= action_text %>する</span>
     </div>
   </div>
@@ -26,40 +26,16 @@
           <%= f.file_field :image1 %>
         </div>
         
-        <div class="img-select">
-          <div class="text-start">
-            <%= f.label :image2, class: 'fw-bold mb-3 text-main', value: '投稿画像2枚目' %>
-          </div>
-          <%= f.file_field :image2 %>
-        </div>
-        
-        <div class="img-select">
-          <div class="text-start">
-            <%= f.label :image3, class: 'fw-bold mb-3 text-main', value: '投稿画像3枚目' %>
-          </div>
-          <%= f.file_field :image3 %>
-        </div>
+  
         
         <div class="py-3">
           <div class="text-start mb-3">
-            <%= f.label :tag1, class: 'fw-bold rounded text-main', value: 'タグ１' %>
+            <%= f.label :catergory, class: 'fw-bold rounded text-main', value: 'カテゴリー' %>
           </div>
-          <%= f.text_field :tag1, class: 'form-control tag-text box-shadow bg-white' %>
+          <%= f.text_field :category, class: 'form-control tag-text box-shadow bg-white' %>
         </div>
         
-        <div class="py-3">
-          <div class="text-start mb-3">
-            <%= f.label :tag2, class: 'fw-bold rounded text-main', value: 'タグ２' %>
-          </div>
-          <%= f.text_field :tag2, class: 'form-control tag-text box-shadow bg-white' %>
-        </div>
-        
-        <div class="py-3">
-          <div class="text-start mb-3">
-            <%= f.label :tag3, class: 'fw-bold rounded text-main', value: 'タグ３' %>
-          </div>
-          <%= f.text_field :tag3, class: 'form-control tag-text box-shadow bg-white' %>
-        </div>
+      
         <div class="col-12 d-flex justify-content-center">
           <%= f.submit '送信する', class: 'btn d-block rounded fw-bold box-shadow text-white mt-4 px-5 py-3 fs-6 bg-purple' %>
         </div>

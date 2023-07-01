@@ -1,3 +1,4 @@
 class Post < ApplicationRecord
-  validates_presence_of :id
+  belongs_to :veterinarian
+  validates :name, :category, :description, presence: true
 end

@@ -40,21 +40,16 @@
                 <%= f.file_field :avatar %>
               </div>
               
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <h5 class="text-custom" style="color: #450000;">動物カテゴリー</h5>
-                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#animalCategories" aria-expanded="false" aria-controls="animalCategories">
-                      専門分野を選択
-                    </button>
-                    <div class="collapse" id="animalCategories">
-                      <h6 class="text-custom" style="color: #450000;">1. 哺乳類</h6>
-                      <h6 class="text-custom" style="color: #450000;">2. 鳥類</h6>
-                      <h6 class="text-custom" style="color: #450000;">3. 爬虫類</h6>
-                      <h6 class="text-custom" style="color: #450000;">4. 両生類</h6>
-                      <h6 class="text-custom" style="color: #450000;">5. その他</h6>
-                    </div>
-                  </div>
+              <div class="div-title mb-4 mt-4">
+                <div class="text-start">
+                  <select class="form-select" id="exampleFromSelect1">
+                    <option value="0">専門分野を選択</option>
+                    <option value="1">1. 哺乳類</option>
+                    <option value="2">2. 鳥類</option>
+                    <option value="3">3. 爬虫類</option>
+                    <option value="4">4. 両生類</option>
+                    <option value="5">5. その他</option>
+                  </select>
                 </div>
               </div>
               
@@ -95,14 +90,10 @@
               <%= f.submit "新規会員登録する", class: 'btn fw-bold rounded py-md-3 w-50 text-white mt-3', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b); box-shadow: none;' %>
             </div>
           </div>
-          </div>
-          </div>
-
-                  
-       <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
-
 </div>
+
 

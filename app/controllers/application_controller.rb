@@ -10,16 +10,18 @@ class ApplicationController < ActionController::Base
       new_veterinarian_session_path
     end
   end
-  
-  def after_update_path_for(resource)
-    veterinarian_path(resource)
-  end
+
   
   protected
   
+  def logged_in?
+    veterinarian_signed_in?
+  end
+
+  
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :avatar, :veterinary_certificate, :category_id, :resume_posting])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar, :category_id, :resume_posting])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :resume, :license, :category_id, :available_date1, :available_date2, :available_date3 ])
     end
 end
 

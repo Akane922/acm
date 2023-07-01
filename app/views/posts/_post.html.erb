@@ -1,0 +1,43 @@
+<div class="l-article">
+  <div class="l-article__header">
+    <div class="l-article__header--left">
+      <div class="l-article__category-box">
+        <time><%= post.created_at.strftime('%Y.%-m.%d') %></time>
+      </div>
+    </div>
+    <div class="l-article__header--right">
+      <div class="c-dropdown dropdown">
+        <a id="dropdownMenuLink" class="dropdown-toggle" aria-expanded="false" data-toggle="dropdown" href="#">
+          <span class="c-dropdown-dots"></span>
+          <span class="c-dropdown-dots"></span>
+          <span class="c-dropdown-dots"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <% unless action_name == 'show' %>
+            <li class="dropdown-item c-dropdown-item">
+              <%= icon('fas', 'book') %>
+              <%= link_to '詳細', post_path(post), class: 'details' %>
+            </li>
+          <% end %>
+          <% if post.veterinarian == current_veterinarian %>
+            <li class="dropdown-item c-dropdown-item">
+              <%= icon('fas', 'edit') %>
+              <%= link_to '編集', edit_post_path(post), class: 'edit' %>
+            </li>
+            <li class="dropdown-item c-dropdown-item">
+              <%= icon('fas', 'trash') %>
+              <%= link_to '削除', post_path(post), class: 'delete', method: :delete, data: {confirm: '本当に削除しますか？'} %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="l-article__main">
+    <%= link_to post.title, post_path(post), class: 'l-article__title' %>
+    <%= link_to post.url, post.url, target: :_blank, class: 'l-article__url' %>
+    <div class="l-article__description">
+      <%= simple_format(post.description) %>
+    </div>
+  </div>
+</div>
