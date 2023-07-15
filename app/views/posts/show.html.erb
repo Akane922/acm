@@ -1,0 +1,32 @@
+ <% @posts.each do |post| %>
+    <div class="one-post">
+      <%= link_to post_path(post) do %>
+      <p class="caption">ユーザ名</p>
+      <%= attachment_image_tag post, :image, format: 'jpeg', size: '300x200' %>
+      <p class="caption mb-0"><%= post.location %></p>
+      <p class="caption"><%= "#{post.comments.count} コメント" %></p>  
+      <% end %>
+    </div>
+  <% end %>
+  
+  <section class="row py-5 bg-white" style="padding-top: 100px; padding-bottom: 100px;">
+  <div class="col-lg-9">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-effect" style="padding: 10px;">
+            <%= image_tag 'puppy.jpg', class: 'card-img-top', alt: 'Puppy', style: 'max-height: calc(2/3 * 250px); width: 90%; margin: 0 auto; margin-top: 10px; margin-bottom: 10px;' %>
+            <td class="text-start" style="vertical-align: middle;"><%= current_veterinarian.comment %></td>
+              <tr>
+                <th class="text-start" style="width: 150px;">専門分野:</th>
+                <td class="text-start" style="vertical-align: middle;"><%= current_veterinarian.category.name %></td>
+              </tr>
+            <p class="text-color" style="margin-bottom: 0;">コメント</p>
+            <p class="caption"><%= "#{post.comments.count} コメント" %></p> 
+            <textarea maxlength="50" style="width: 100%; height: 80px; margin-bottom: 0;" placeholder="最大50文字まで入力できます"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
