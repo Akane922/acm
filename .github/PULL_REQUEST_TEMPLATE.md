@@ -16,6 +16,9 @@ application controller に以下追加
     veterinarian_signed_in?
   end
 
+_form.html.erbを作成
+rails g model Comment comment:text veterinarian_id:integer post_id:integer
+
 ## 実装のリンク
 <!-- ガントチャートのタスク対象のセルのリンクを貼る -->
 https://docs.google.com/spreadsheets/d/16aO-isogj_03ykaSCOI7fjpI2dMjqEZedh8kVr040Uc/edit#gid=1897158943&range=B33

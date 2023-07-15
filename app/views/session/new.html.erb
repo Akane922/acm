@@ -8,11 +8,14 @@
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
+
       <div class="p-form__input-field">
         <%= f.label :password %>
         <br>
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password", type: "password" %>
       </div>
+    
+      
       <div class="p-form__input-submit">
         <%= f.submit "ログインする", class: 'p-button c-button--submit' %>
       </div>

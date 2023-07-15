@@ -58,36 +58,28 @@
       </div>
     </div>
 
-
-    <!-- カードセクション -->
-     <section class="row py-5 bg-white" style="padding-top: 100px; padding-bottom: 100px;">
+    
+    <section class="row py-5 bg-white" style="padding-top: 100px; padding-bottom: 100px;">
       <div class="col-lg-9">
         <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card card-effect">
-                <%= image_tag 'puppy.jpg', class: 'card-img-top', alt: 'Puppy', style: 'height: 300px;' %>
-                <p>小犬の病気に詳しい獣医師</p>
-                <h5 class="mt-4 mb-2 text-color" style="text-decoration: underline; color: pink;">ピカワカ動物病院 山田 太郎</h5>
-                <p class="text-color">現在の病状 小型犬は元々体が弱い個体が多く、関節や口腔環境にも注意が必要な動物です。渋谷にて10年以上小型犬を中心に...</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-effect">
-                <%= image_tag 'elephant.jpg', class: 'card-img-top', alt: 'Elephant', style: 'height: 300px;' %>
-                <h5 class="mt-4 mb-2 text-color">Service</h5>
-                <p class="text-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis omnis fuga sint? Ad, laboriosam non.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-effect">
-                <%= image_tag 'kitten.jpg', class: 'card-img-top', alt: 'Kitten', style: 'height: 300px;' %>
-                <h5 class="mt-4 mb-2 text-color">Service</h5>
-                <p class="text-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis omnis fuga sint? Ad, laboriosam non.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+           <div class="row">
+             <% @veterinarians.each do |veterinarian| %>
+                <div class="col-md-4">
+                  <div class="card card-effect">
+                    <%= image_tag veterinarian.avatar.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                    <p><%= veterinarian.card_title %></p>
+                    <p><%= veterinarian.name %></p>
+                    <h5 class="mt-4 mb-2 text-color" style="text-decoration: underline; color: pink;"><%= veterinarian.category.name %></h5>
+                    <p class="text-color"><%= veterinarian.motto %></p>
+                    <p><%= veterinarian.available_date1 %></p>
+                    <p><%= veterinarian.available_date2 %></p>
+                    <p><%= veterinarian.available_date3 %></p>
+                  </div>
+
+                </div>
+             <% end %>    
+         </div>
+      </div>
   </div>
 
 

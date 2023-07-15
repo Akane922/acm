@@ -19,10 +19,11 @@
       
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <%= link_to "新規投稿", new_post_path, class: "nav-link", style: "position: relative;" %>
+            <%= link_to "マッチ", veterinarian_path(current_veterinarian), class: "nav-link", style: "position: relative;" %>
               <div class="pink-line"></div>
             </a>
           </li>
+
           <li class="nav-item">
             <%= link_to edit_veterinarian_registration_path, class: "nav-link", style: "position: relative;" do %>
               アカウント編集
@@ -38,10 +39,10 @@
       <% elsif params[:action] == "edit" %>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <%= link_to "新規投稿", new_post_path, class: "nav-link", style: "position: relative;" %>
+            <%= link_to "マッチ", new_post_path, class: "nav-link", style: "position: relative;" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ホーム", root_path, class: "nav-link", style: "position: relative;" %>
+            <%= link_to "ホーム", "/veterinarians", class: "nav-link", style: "position: relative;" %>
           </li>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_veterinarian_session_path, method: :delete, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>

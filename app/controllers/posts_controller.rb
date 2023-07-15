@@ -3,6 +3,12 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_veterinarian!, only: [:new, :create, :edit, :update, :destroy]
 
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(7).reverse_order
+  end
+
   def update
     redirect_to root_path, alert: '投稿者でなければ、更新できません。' and return unless current_user == @post.veterinarians
 
@@ -12,7 +18,6 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-  
 
   def destroy
     redirect_to root_path, alert: '投稿者でなければ、削除できません。' and return unless veterinarian_user == @post.veterinarian
