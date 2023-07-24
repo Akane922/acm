@@ -63,19 +63,18 @@
       <div class="col-lg-9">
         <div class="container">
            <div class="row">
-             <% @veterinarians.each do |veterinarian| %>
+             <% @veterinarians.each do |animal_care_group| %>
                 <div class="col-md-4">
                   <div class="card card-effect">
-                    <%= image_tag veterinarian.avatar.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
-                    <p><%= veterinarian.card_title %></p>
-                    <p><%= veterinarian.name %></p>
-                    <h5 class="mt-4 mb-2 text-color" style="text-decoration: underline; color: pink;"><%= veterinarian.category.name %></h5>
-                    <p class="text-color"><%= veterinarian.motto %></p>
-                    <p><%= veterinarian.available_date1 %></p>
-                    <p><%= veterinarian.available_date2 %></p>
-                    <p><%= veterinarian.available_date3 %></p>
+                    <%= image_tag animal_care_group.avatar.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                    <p><%= animal_care_group.card_title %></p>
+                    <p><%= animal_care_group.name %></p>
+                    <h5 class="mt-4 mb-2 text-color" style="text-decoration: underline; color: pink;"><%= animal_care_group.category.name %></h5>
+                    <p class="text-color"><%= animal_care_group.motto %></p>
+                    <p><%= animal_care_group.available_date1 %></p>
+                    <p><%= animal_care_group.available_date2 %></p>
+                    <p><%= animal_care_group.available_date3 %></p>
                   </div>
-
 
                 </div>
              <% end %>    

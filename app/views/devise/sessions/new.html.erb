@@ -15,7 +15,7 @@
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
                 <%= f.label :password, class: 'text-start text-main text-color fw-bold mb-2 pt-4', value: 'パスワード' %>
                 <span class="p_required">必須</span>
-                <%= f.text_field :password, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+                <%= f.password_field :password, autofocus: true, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
                 <div class="p-form__input-submit text-start">
                 <%= f.submit "ログインする", class: 'btn fw-bold rounded py-md-3 w-50 text-white mt-3', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b); box-shadow: none;' %>
 
