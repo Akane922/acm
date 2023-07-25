@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light white py-3">
   <div class="container d-flex align-items-center">
-    <a class="navbar-brand" href="#">
-      <div class="row align-items-center">
-        <div class="col-auto">
-          <%= image_tag 'ACM logo.png', class: 'img-fluid', style: 'width: 50px; height: 60px;' %>
-        </div>
-        <div class="col">
-          <h4 class="text-orange pt-3 font-weight-light" style="color: orange;">Animal Care Matching</h4>
-        </div>
-      </div>
-    </a>
+<a class="navbar-brand" href="/veterinarians">
+  <div class="row align-items-center">
+    <div class="col-auto">
+      <%= image_tag 'ACM logo.png', class: 'img-fluid', style: 'width: 50px; height: 60px;' %>
+    </div>
+    <div class="col">
+        <h4 class="text-orange pt-3 font-weight-light" style="color: orange;">Animal Care Matching</h4>
+    </div>
+  </div>
+</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -64,7 +64,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <%= link_to "新規アカウント登録", new_veterinarian_registration_path, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
+          <%= link_to "獣医師アカウント登録", new_veterinarian_registration_path, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
+          <%= link_to "動物園＆保護団体登録", new_animal_care_group_registration_path, class: 'text-white text-btn btn btn-primary ms-2', style: 'background-image: linear-gradient(to left, #fedc40, #f75d8b);' %>
         </li>
       </ul>
     <% end %>

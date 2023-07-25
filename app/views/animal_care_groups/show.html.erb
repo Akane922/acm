@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-6 mt-5">
+      <div class="col-12 text-center pb-2">
+        <p class="title-p fw-bold text-main text-color fs-4">アカウント</p>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-center">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>名前</td>
+              <td><%= current_animal_care_group.name %></td>
+            </tr>
+            <tr>
+              <td>ユーザー画像</td>
+              <td><%= image_tag @animal_care_group.avatar.url, class: 'avatar-image', width: '100', height: '100'  %></td>
+            </tr>
+            <tr>
+              <td>タイトル</td>
+              <td>
+                <% if current_veterinarian.card_title.present? %>
+                  <%= current_veterinarian.card_title %>
+                <% else %>
+                  登録されていません。
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>コメント</td>
+              <td colspan="3">
+                <% if current_veterinarian.motto.present? %>
+                  <%= current_veterinarian.motto %>
+                <% else %>
+                  登録されていません。
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>       
+      </div>
+    </div>  
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-6 mt-5">
+      <div class="col-12 text-center pb-2">
+        <p class="title-p fw-bold text-main text-color fs-4">マッチング</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-start">
+        <div>
+          <span class="text-main fs-6">マッチングリクエスト</span>
+        </div>
+        <section class="row py-5 bg-white" style="padding-top: 10px; padding-bottom: 10px;">
+          <div class="col-lg-9">
+            <div class="container">
+              <div class="row">
+                <% @veterinarians.limit(5).each do |veterinarian| %>
+                  <div class="col-md-4">
+                    <div class="d-flex align-items-center">
+                      <%= image_tag veterinarian.avatar.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                      <div class="ms-2">
+                        <p><%= veterinarian.name %></p>
+                        <%= link_to "プロフィール表示", veterinarian_registration_path, class: "nav-link" %>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">承認ボタン</button>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-start">
+        <div>
+          <span class="text-main fs-6">マッチング申請</span>
+        </div>
+        <section class="row py-5 bg-white" style="padding-top: 10px; padding-bottom: 10px;">
+          <div class="col-lg-9">
+            <div class="container">
+              <div class="row">
+                <% @veterinarians.limit(5).each do |veterinarian| %>
+                  <div class="col-md-4">
+                    <div class="d-flex align-items-center">
+                      <%= image_tag veterinarian.avatar.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                      <div class="ms-2">
+                        <p><%= veterinarian.name %></p>
+                        <%= link_to "プロフィール表示", veterinarian_registration_path, class: "nav-link" %>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">承認ボタン</button>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

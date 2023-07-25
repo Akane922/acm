@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-6 mt-5">
+      <div class="col-12 text-center pb-2">
+        <p class="title-p fw-bold text-main text-color fs-4">アカウント</p>
+      </div>
+    </div>
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-center">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>名前</td>
+              <td><%= current_veterinarian.name %></td>
+            <tr>
+              <td>ユーザー画像</td>
+              <td><%= image_tag @veterinarian.avatar.url, class: 'avatar-image', width: '100', height: '100'  %></td>
+            </tr>
+            <tr>
+            <td>獣医師免許</td>
+              <td>
+                <% if @veterinarian.license.present? %>
+                  <%= image_tag @veterinarian.license.url, class: 'license-image', width: '100', height: '100' %>
+                <% else %>
+                  投稿には登録が必須です。
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>簡易履歴書</td>
+              <td>
+                <% if @veterinarian.resume.present? %>
+                  <%= image_tag @veterinarian.resume.url, class: 'resume-image', width: '100', height: '100' %>
+                <% else %>
+                  投稿には登録が必須です。
+                <% end %>
+              </td>
+            </tr>
+        　      <td>専門分野</td>
+                <td>
+                  <% if current_veterinarian.category.present? %>
+                    <%= Category.find_by(id: current_veterinarian.category_id)&.name %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>タイトル</td>
+                <td>
+                  <% if current_veterinarian.card_title.present? %>
+                    <%= current_veterinarian.card_title %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>コメント</td>
+                <td colspan="3">
+                  <% if current_veterinarian.motto.present? %>
+                    <%= current_veterinarian.motto %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>第一対応可能日</td>
+                <td>
+                  <% if current_veterinarian.available_date1.present? %>
+                    <%= current_veterinarian.available_date1 %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>第二対応可能日</td>
+                <td>
+                  <% if current_veterinarian.available_date2.present? %>
+                    <%= current_veterinarian.available_date2 %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td>第三対応可能日</td>
+                <td>
+                  <% if current_veterinarian.available_date3.present? %>
+                    <%= current_veterinarian.available_date3 %>
+                  <% else %>
+                    登録されていません。
+                  <% end %>
+                </td>
+            </tr>
+          </tbody>
+        </table>       
+      </div>
+    </div>  
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <div class="col-10 col-md-6 mt-5">
+      <div class="col-12 text-center pb-2">
+        <p class="title-p fw-bold text-main text-color fs-4">マッチング</p>
+      </div>
+    </div>
+
+ 
+  
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-start">
+        <div>
+            <span class="text-main fs-6">マッチングリクエスト</span>
+        </div>
+          <section class="row py-5 bg-white" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col-lg-9">
+              <div class="container">
+                <div class="row">
+                  <% @animal_care_groups.limit(5).each do |animal_care_group| %>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center">
+                        <%= image_tag animal_care_group.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                        <div class="ms-2">
+                          <p><%= animal_care_group.name %></p>
+                          <%= link_to "プロフィール表示", animal_care_groups_registration_path, class: "nav-link" %>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary">承認ボタン</button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </section>
+    　</div>
+    </div>
+  
+    <div class="row justify-content-center" style="margin:0;padding:0;">
+      <div class="col-md-8 text-start">
+        <div>
+            <span class="text-main fs-6">マッチング申請</span>
+        </div>
+          <section class="row py-5 bg-white" style="padding-top: 10px; padding-bottom: 10px;">
+            <div class="col-lg-9">
+              <div class="container">
+                <div class="row">
+                  <% @animal_care_groups.limit(5).each do |animal_care_group| %>
+                    <div class="col-md-4">
+                      <div class="d-flex align-items-center">
+                        <%= image_tag animal_care_group.url, class: 'card-img-top', alt: 'サムネイル', style: 'height: 300px;' %>
+                        <div class="ms-2">
+                          <p><%= animal_care_group.name %></p>
+                          <%= link_to "プロフィール表示", animal_care_groups_registration_path, class: "nav-link" %>
+                        </div>
+                      </div>
+                      <button class="btn btn-primary">承認ボタン</button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </section>
+    　</div>
+    </div>
+    
+    
+  </div>
+</div>
